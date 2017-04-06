@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+
+<head lang="en" th:replace="layout :: head">
+</head>
+
+<body>
+	<!-- container section start -->
+	<section id="container" class="">
+		<!--header start-->
+
+		
+		<div th:replace="layout :: header"></div>
+		<div th:replace="layout :: aside"></div>
+		
+		<!--header end-->
+
+		<!--sidebar start-->
+
+
+		<!--sidebar end-->
+
+		<!--main content start-->
+		<section id="main-content">
+			<section class="wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<h3 class="page-header">
+							<i class="fa fa fa-bars"></i> Pages
+						</h3>
+						<ol class="breadcrumb">
+							<li><i class="fa fa-home"></i><a th:href="${'/smais/admin'}">Home</a></li>
+							<li><i class="fa fa-laptop"></i>Dashboard</li>
+						</ol>
+					</div>
+				</div>
+
+				<div class="row">
+					
+					<!--/.col-->
+
+
+				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+						<div class="info-box blue-bg">
+							<i class="fa fa-cloud-download"></i>
+							<div class="count">974</div>
+							<div class="title">Siswa</div>
+						</div>
+						<!--/.info-box-->
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+						<div class="info-box brown-bg">
+							<i class="fa fa-shopping-cart"></i>
+							<div class="count">64</div>
+							<div class="title">Guru</div>
+						</div>
+						<!--/.info-box-->
+					</div>
+					<!--/.col-->
+
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+						<div class="info-box dark-bg">
+							<i class="fa fa-thumbs-o-up"></i>
+							<div class="count">32</div>
+							<div class="title">Kelas</div>
+						</div>
+						<!--/.info-box-->
+					</div>
+					<!--/.col-->
+
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+							<div class="info-box green-bg">
+							<i class="fa fa-cubes"></i>
+							<div class="count">17</div>
+							<div class="title">Mata Pelajaran</div>
+						</div>
+						<!--/.info-box-->
+					</div>
+					<!--/.col-->
+
+				</div>
+				<!--/.row-->
+
+
+
+
+				<div class="row">
+					<div class="col-md-6 portlets">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h2>
+									<strong>Calendar</strong>
+								</h2>
+								<div class="panel-actions">
+									<a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+									<a href="#" class="wclose"><i class="fa fa-times"></i></a>
+								</div>
+
+							</div>
+							<br/>
+							<br/>
+							<br/>
+							<div class="panel-body">
+								<!-- Widget content -->
+
+								<!-- Below line produces calendar. I am using FullCalendar plugin. -->
+								<div id="calendar"></div>
+
+							</div>
+						</div>
+
+					</div>
+
+<!-- <><><><><>
+
+
+		<div class="row">
+			<div class="col-sm-8">
+				
+				<form class="form-horizontal" th:object="${mahasiswa}" th:action="@{/mahasiswa/create}" method="post">
+					<input type="hidden" th:field="*{id}" />
+					<input type="hidden" th:field="*{version}" />
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Nama:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{nama}" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">NIM:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{nim}" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Jurusan:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{jurusan}" />
+						</div>
+   					</div>
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-default">Simpan</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+<as><><><><> -->
+
+					<div class="col-md-6 portlets">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="pull-left">Quick Post</div>
+								<div class="widget-icons pull-right">
+									<a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+									<a href="#" class="wclose"><i class="fa fa-times"></i></a>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-body">
+								<div class="padd">
+
+									<div class="form quick-post">
+										<!-- Edit profile form (not working)-->
+										
+										<form class="form-horizontal" th:object="${pengumuman}" th:action="@{/createPengumuman}" method="post">
+											 <!-- Title -->
+											<div class="form-group">	
+												<label class="control-label col-lg-2" for="title" >Judul</label>
+												<div class="col-lg-10">
+													<input type="text" class="form-control"	th:field="*{judul}"/>
+												</div>
+											</div>
+								
+											<!-- Content -->
+											<div class="form-group">
+												<label class="control-label col-lg-2" for="content">Konten</label>
+												<div class="col-lg-10">
+													<textarea class="form-control" id="content" th:field="*{konten}"></textarea>
+												</div>
+											</div>
+											<!-- Cateogry -->
+											<div class="form-group">
+												<label class="control-label col-lg-2">Kategori</label>
+												<div class="col-lg-10">
+													<select class="form-control" th:field="*{kategori}">
+														<option value="">- Pilih Kategori -</option>
+														<option value="Akademik">Akademik</option>
+														<option value="Ekstra Kulikuler">Ekstra Kulikuler</option>
+														<option value="Kontest">Kontest</option>
+													</select>
+												</div>
+											</div>
+											<!-- Tags -->
+											
+
+											<!-- Buttons -->
+											<div class="form-group">
+												<!-- Buttons -->
+												<div class="col-lg-offset-2 col-lg-9">
+													<button type="submit" class="btn btn-primary">Publish</button>
+													<button type="submit" class="btn btn-danger">Save
+														Draft</button>
+													<button type="reset" class="btn btn-default">Reset</button>
+												</div>
+											</div>
+										</form>
+										
+										
+										
+										
+										
+										
+						
+										
+									</div>
+
+
+								</div>
+								<div class="widget-foot">
+									<!-- Footer goes here -->
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+
+
+
+				<!-- page start-->
+				Page content goes here
+				<!-- page end-->
+			</section>
+		</section>
+		<!--main content end-->
+		<div class="text-right">
+			<div class="credits">
+				<!-- 
+                    All the links in the footer should remain intact. 
+                    You can delete the links only if you purchased the pro version.
+                    Licensing information: https://bootstrapmade.com/license/
+                    Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+                -->
+				<a
+					href="https://bootstrapmade.com/free-business-bootstrap-themes-website-templates/"></a>
+				<a href="https://bootstrapmade.com/"></a>
+			</div>
+		</div>
+	</section>
+	<!-- container section end -->
+	<!-- javascripts -->
+
+	<div th:replace="layout :: script"></div>
+
+
+</body>
+</html>
